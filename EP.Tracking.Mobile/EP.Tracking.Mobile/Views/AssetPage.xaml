@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EP.Tracking.Mobile.Views.AssetPage"
+             BackgroundColor="{StaticResource PageBackground}">
+    <ContentPage.Content>
+        <TableView Intent="Form" Margin="10">
+            <TableView.Root>
+                <TableSection Title="{Binding Asset.Name}">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Site" VerticalTextAlignment="Center" FontSize="16" />
+                                <Picker Title="Site" Grid.Column="1" ItemsSource="{Binding Sites}" SelectedItem="{Binding Asset.Site}" ItemDisplayBinding="{Binding City}" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Status" VerticalTextAlignment="Center" FontSize="16" />
+                                <Picker Title="Status" Grid.Column="1" ItemsSource="{Binding AssetStatusList}" SelectedItem="{Binding Asset.AssetStatus}" ItemDisplayBinding="{Binding Label}" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>
+            </TableView.Root>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>
